@@ -8,7 +8,11 @@ import (
 
 func main() {
 	log.SetPrefix("Hello: ")
+
+	//The flag bits are Ldate, Ltime, and so on.
 	log.SetFlags(0)
+	//log.SetFlags(1) // Date
+	//log.SetFlags(2) // Time
 
 	fmt.Println("Hello World!")
 
