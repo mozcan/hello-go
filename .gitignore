@@ -1,0 +1,62 @@
+# Geçici dosyalar
+*.log
+*.pot
+*.out
+*.pid
+*.trace
+
+# Derleme dosyaları
+*.exe
+*.dll
+*.so
+*.dylib
+
+# İndirilen dosyalar ve istemci tarafından oluşturulan dosyalar
+bin/
+obj/
+
+# Yerel yapılandırma dosyaları
+*.yaml
+*.yml
+*.json
+
+# Derleme bağımlılıkları ve üretilen dosyalar
+/vendor/
+/Godeps/
+/vendor/
+/_vendor/
+/.glide/
+/pkg/
+/.idea/
+
+# Görsel Studio Code'da oluşturulan dosyalar
+.vscode/
+
+# Jetbrains IntelliJ IDEA'da oluşturulan dosyalar
+.idea/
+
+# Go'nun test verileri için oluşturduğu dosyalar
+*.test
+
+# Go test kaplaması dosyası
+*.cover
+
+# Go arkaplanlı çalışan (background) süreç dosyaları
+*.pid
+
+# Go araçları tarafından oluşturulan kapsam dosyası
+*.prof
+
+# Go araçları tarafından oluşturulan kaplama dosyaları
+*.out
+
+# Veritabanı bağlantı ayarları
+database.yml
+
+# Uygulama yapılandırma dosyaları
+config.toml
+config.json
+
+# Derleme öncesi oluşturulan dosyalar
+/_obj/
+/nbproject/
