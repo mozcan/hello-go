@@ -17,4 +17,11 @@ func main() {
 	fmt.Println(per)
 	person := person{name: "Mustafa", surname: "Özcan", age: 33}
 	fmt.Println(person.name)
+
+	anymStruct := struct {
+		identity int16
+		name     string
+	}{12345, "Mustafa"}
+
+	fmt.Println("Identity:", anymStruct.identity, "name:", anymStruct.name)
 }
