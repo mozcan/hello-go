@@ -5,6 +5,11 @@ import (
 	"maps"
 )
 
+type human struct {
+	name, surname string
+	age           int16
+}
+
 func main() {
 	var new_map = make(map[string]int)
 
@@ -34,5 +39,12 @@ func main() {
 
 	if maps.Equal(new_map, equal_map) {
 		fmt.Println("new_map == equal_map")
+	}
+
+	structMap := make(map[string]human)
+	structMap["isim"] = human{"Mustafa", "ÖZCAN", 33}
+
+	for key, val := range structMap {
+		fmt.Println("Key:", key, "Value: Name -> ", val.name, "Surname -> ", val.surname, "Age -> ", val.age)
 	}
 }
