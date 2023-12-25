@@ -16,6 +16,7 @@ func main() {
 	fmt.Println(unsafe.Sizeof(per))
 	fmt.Println(per)
 	person := person{name: "Mustafa", surname: "Özcan", age: 33}
+	person.name = "Kemal"
 	fmt.Println(person.name)
 
 	anymStruct := struct {
