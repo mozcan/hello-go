@@ -18,5 +18,5 @@ func oneFunc(one <-chan string) {
 }
 
 func twoFunc(two chan<- string) {
-	two <- "Second message is"
+	two <- "Second message is!"
 }
