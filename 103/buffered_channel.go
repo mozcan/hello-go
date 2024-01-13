@@ -10,6 +10,7 @@ func main() {
 	for i := 1; i < count+1; i++ {
 		fmt.Println(i, ".", <-messages)
 	}
+
 }
 
 func channelBuffered(messages chan string) {
