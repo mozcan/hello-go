@@ -13,7 +13,6 @@ func main() {
 
 	for i := 0; i < 100; i++ {
 		wg.Add(1)
-
 		go Increment(&wg, &m)
 	}
 
