@@ -17,6 +17,12 @@ type UserCreateRequwst struct {
 func main() {
 	app := fiber.New()
 
+	//middleware
+	app.Use(func(ctx *fiber.Ctx) error {
+		fmt.Printf("Hello client. You're calling my -> %s%s and method %s\n", ctx.BaseURL(), ctx.Request().RequestURI(), ctx.Request().Header.Method())
+		return ctx.Next()
+	})
+
 	app.Get("/", func(ctx *fiber.Ctx) error {
 		fmt.Println("Hello First Get Endpoint")
 		ctx.Status(http.StatusOK)
@@ -25,7 +31,7 @@ func main() {
 
 	app.Get("/user/:userId", func(ctx *fiber.Ctx) error {
 		userId := ctx.Params("userId")
-		fmt.Sprintf("User Id -> %s", userId)
+		fmt.Sprintf("User Id -> %s\n", userId)
 		return ctx.SendString(fmt.Sprintf("User Id -> %s", userId))
 	})
 
