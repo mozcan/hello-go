@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/gofiber/fiber/v2"
+	"github.com/google/uuid"
 	"net/http"
 )
 
@@ -18,8 +19,27 @@ func main() {
 	app := fiber.New()
 
 	//middleware
-	app.Use(func(ctx *fiber.Ctx) error {
-		fmt.Printf("Hello client. You're calling my -> %s%s and method %s\n", ctx.BaseURL(), ctx.Request().RequestURI(), ctx.Request().Header.Method())
+	/*
+		app.Use(func(ctx *fiber.Ctx) error {
+			fmt.Printf("Hello client. You're calling my -> %s%s and method %s\n", ctx.BaseURL(), ctx.Request().RequestURI(), ctx.Request().Header.Method())
+			return ctx.Next()
+		})
+
+	*/
+
+	//middleware for spesific endponits
+	app.Use("/user", func(ctx *fiber.Ctx) error {
+		correlationId := ctx.Get("X-CorrelationId")
+
+		if correlationId == "" {
+			return ctx.Status(http.StatusBadRequest).JSON("You have to send correlationId")
+		}
+
+		_, err := uuid.Parse(correlationId)
+		if err != nil {
+			return ctx.Status(http.StatusBadRequest).JSON("CorrelationId must be guid value")
+		}
+
 		return ctx.Next()
 	})
 
