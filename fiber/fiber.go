@@ -19,7 +19,7 @@ func main() {
 
 	app.Get("/", func(ctx *fiber.Ctx) error {
 		fmt.Println("Hello First Get Endpoint")
-		ctx.Status(404)
+		ctx.Status(http.StatusOK)
 		return ctx.JSON("Hello First get endpoint")
 	})
 
